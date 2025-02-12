@@ -1,4 +1,5 @@
-/* Problem 1 Why did the code produce that output? If applicable, how would you get the index value that did not output?*/
+/* Problem 1
+Why did the code produce that output? If applicable, how would you get the index value that did not output?*/
 const cars = ['Tesla', 'Mercedes', 'Honda']
 const [ randomCar ] = cars
 const [ ,otherRandomCar ] = cars
@@ -17,8 +18,9 @@ we did decustruct the array cars thats why we can consol log each element */
 const [, , lastcar] = cars
 console.log(lastcar)
 
-
-/* problem 2 Why did the code produce that output? If applicable, what would you need to do to solve any potential problems?*/ 
+/***************************************************************************************************************/
+/* problem 2
+ Why did the code produce that output? If applicable, what would you need to do to solve any potential problems?*/ 
 
 const employee = {
     employeeName: 'Elon',
@@ -46,9 +48,10 @@ const { employeeName } = employee; in this use case we can console.log(employeeN
 
 b- console.log(employee.employeeName); will not execute an error */
 
+/*************************************************************************************************************/
 
-
-/* Problem 3 Why did the code produce that output? If applicable, how would you alter this code without changing either console.log?*/ 
+/* Problem 3 
+Why did the code produce that output? If applicable, how would you alter this code without changing either console.log?*/ 
 
 const person = {
     name: 'Phil Smith',
@@ -72,8 +75,9 @@ const person = {
     password: '12345'
 }*/
 
-
-//problem 4 Why did the code produce that output? Declare a new variable for the value at the 4th index of the array and console.log it.// 
+/***************************************************************************************************************/
+//problem 4 
+// Why did the code produce that output? Declare a new variable for the value at the 4th index of the array and console.log it.// 
 
 const numbers = [8, 2, 3, 5, 6, 1, 67, 12, 2];
 const [,first] = numbers;
@@ -87,7 +91,7 @@ console.log(first === third); /*true */
 // console.log(first === third); we compared first and third  wich value is 2 and 2 thats why we get true
 // const [,,,,fourth]= numbers ;
 //console.log(fourth);
-
+/**********************************************************************************************************************/
 //Problem 5
 //Why did the code produce that output? Console.log the last value in the secondKey property's array.
 
@@ -118,6 +122,7 @@ console.log(willThisWork);
 //const [,,,,,lastValue]= secondKey;
 //console.log(lastValue)
 
+/****************************************************************************************************************/
 //Problem 6
 //First, how many scopes does the following code block contain? Define each scope and guess what the output will be.
 
@@ -142,7 +147,7 @@ printNames(beatles);
 // Ringo was found at index 3
 //name and index after loop is Ringo : 4
 
-
+/****************************************************************************************************************/
 
 //Problem 7
 //Why did the code produce that output?
@@ -157,12 +162,12 @@ function actuallyPrintingNames() {
 
   // we did not invoke the function actuallyPrintingNames(); and if we do it wont work because it does not have access to the var names wich is in the function printNames(names)
   
-
+/****************************************************************************************************************/
   //Problem 8
 //Why did the code produce that output? Explain the output, including any possible errors and why they occurred. 
 // If there are no errors, explain the justification for each keyword used to declare variables.
 
-const beatles = ['Paul', 'George', 'John', 'Ringo'];
+/*const beatles = ['Paul', 'George', 'John', 'Ringo'];*/
 function printNames(names) {
   function actuallyPrintingNames() {
     for (let index = 0; index < names.length; index++) {
@@ -173,4 +178,53 @@ function printNames(names) {
   actuallyPrintingNames();
 }
 printNames(beatles);
+
+//function printNames invoke  function actuallyPrintingNames were the for loop explore the array and log its value
+//this code didnt produce an error
+//const beatles & const name have block scope
+
+/****************************************************************************************************************/
+
+//Problem 9
+//Why did the code produce that output? Explain why each console.log looks the way it does.
+
+const planet = {
+	name:"Jupiter",
+	milesFromSun: 49849,
+	mass: 393983,
+            composition: ["gas", "liquid", "oxygen"]
+}
+const planetCopy = {...planet}
+console.log(planet.composition[0] === planetCopy.composition[0]) 
+console.log(planet === planetCopy)
+
+//planetCopy is planet using spread operator 
+// the values are the same so the first log is true
+//the  references are different so log is false
+
+
+let data = [1, 2, 3];
+const copydata = data.map((element) => (element*2));
+console.log(copydata);
+const explore = (data,double)=>{
+  data.forEach(ele=> {
+    double(data.ele)
+    
+    
+  });
+}
+let double =(ele)=>{return (ele*2) 
+}
+explore(data,double)
+console.log(data);
+let mapNumbers = (numbers,fn) => {
+	for(let i = 0; i < numbers.length; i++){
+		fn(numbers[i]);
+	}
+        return numbers;
+}
+let doubleNumber = (number) => {
+	return number * 2;
+};
+console.log(mapNumbers(data, doubleNumber));
 
