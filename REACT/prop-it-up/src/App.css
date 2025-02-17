@@ -1,0 +1,12 @@
+.PersonCard{
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  border: 2px;
+  border-style: solid;
+  border-color: blueviolet;
+  
+}
+label{
+  display: inline;
+}
