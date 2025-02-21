@@ -29,11 +29,11 @@ const FormComponent = ({handleNewBox}) => {
       <form action="" onSubmit={handleSubmit} className='flex flex-col  '>
         <div className='flex flex-row m-6 justify-end'>
           <h2 className='text-cyan-900'> color</h2>
-          <input type="text" onChange={handleColor} className='bg-gray-300' name="" id="" placeholder='put color' />
+          <input value={color}type="text" onChange={handleColor} className='bg-gray-300' name="" id="" placeholder='put color' />
         </div>
         <div className='flex flex-row m-6 justify-end'>
           <h2 className='text-cyan-900'> Size (pixels)</h2>
-          <input type="text" onChange={handleSize} className='bg-gray-300' name="" id="" placeholder='size' />
+          <input value={size}type="text" onChange={handleSize} className='bg-gray-300' name="" id="" placeholder='size' />
         </div>
         <button type='submit'>add box</button>
       </form>
