@@ -27,9 +27,41 @@ app.delete("/api/shows/:year", (req, res) => {
         
       })
      })
+
     res.json( updatedShows );
 });
 
+app.post("/api/shows", async (req, res) => {
+  const newShow = {
+    "tvShow": req.body.tvShow,
+    "yearCreated": req.body.yearCreated,
+    "genre": req.body.genre,
+    "starring": req.body.starring
+  };
+
+  console.log(newShow);
+
+  try {
+    // Read the current tvShows data from the file
+    const currentShows = JSON.parse(await readFile('./models/tvshows.json', 'utf8'));
+    
+    // Add the new show to the list
+    currentShows.push(newShow);
+    
+    // Write the updated data back to the file
+    await writeFile('./models/tvshows.json', JSON.stringify(currentShows, null, 2));
+    
+    res.status(201).json({
+      status: "success",
+      data: newShow
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: "error", message: "An error occurred" });
+  }
+});
+
+  
 app.patch("/api/shows/:show", (req, res)=>{
     const show = req.params.show;
     const starring = req.body;
